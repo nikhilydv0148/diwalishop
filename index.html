@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparkle Diwali - Premium Crackers Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd700 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(139, 69, 19, 0.95);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,100 500,50 T1000,50 V100 H0 Z" fill="rgba(255,255,255,0.1)"/></svg>') bottom;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 3px 3px 6px rgba(0,0,0,0.5); }
+            to { text-shadow: 3px 3px 20px rgba(255,215,0,0.8), 3px 3px 6px rgba(0,0,0,0.5); }
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: #fff;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Live Offers Section */
+        .offers {
+            padding: 3rem 0;
+            background: rgba(255, 68, 68, 0.95);
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .offers::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .offers h2 {
+            text-align: center;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: #fff;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .offer-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transform: rotate(-2deg);
+            transition: all 0.3s;
+            border: 3px dashed #ff4444;
+        }
+
+        .offer-card:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .offer-card:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .offer-title {
+            font-size: 1.5rem;
+            color: #ff4444;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .offer-description {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .offer-validity {
+            background: #ffd700;
+            color: #333;
+            padding: 0.5rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 4rem 0;
+            background: rgba(255,255,255,0.95);
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #8b4513;
+            margin-bottom: 3rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border-color: #ff6b35;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ff4444;
+        }
+
+        /* Footer */
+        footer {
+            background: #8b4513;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                padding: 2rem 0;
+            }
+            
+            .products, .offers {
+                margin: 1rem 0;
+                padding: 2rem 0;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 1rem;
+            }
+            
+            .offers-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .product-card {
+                padding: 1rem;
+            }
+            
+            .product-image {
+                height: 100px;
+                font-size: 2rem;
+            }
+            
+            .product-name {
+                font-size: 1rem;
+            }
+            
+            .product-price {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 0.8rem;
+            }
+            
+            .product-card {
+                padding: 0.8rem;
+            }
+            
+            .product-image {
+                height: 80px;
+                font-size: 1.5rem;
+            }
+            
+            .product-name {
+                font-size: 0.9rem;
+            }
+            
+            .product-price {
+                font-size: 1rem;
+            }
+        }
+
+        /* Menu Toggle for Mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(139, 69, 19, 0.98);
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                padding: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🎆Harshita Pathaka Shop</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>✨ Light Up Your Diwali ✨</h1>
+                <p>Premium Quality Crackers & Fireworks for a Spectacular Celebration</p>
+            </div>
+        </section>
+
+        <section class="offers" id="offers">
+            <div class="container">
+                <h2>🔥 LIVE OFFERS 🔥</h2>
+                <div class="offers-grid">
+                    <div class="offer-card">
+                        <div class="offer-title">BUY 2 GET 1 FREE</div>
+                        <div class="offer-description">On all Sparkler Sticks and Flower Pots</div>
+                        <div class="offer-validity">Valid till Diwali</div>
+                    </div>
+                    <div class="offer-card">
+                        <div class="offer-title">FLAT 30% OFF</div>
+                        <div class="offer-description">On orders above ₹2000</div>
+                        <div class="offer-validity">Limited time offer</div>
+                    </div>
+                    <div class="offer-card">
+                        <div class="offer-title">FREE DELIVERY</div>
+                        <div class="offer-description">On orders above ₹1500</div>
+                        <div class="offer-validity">Within city limits</div>
+                    </div>
+                    <div class="offer-card">
+                        <div class="offer-title">COMBO DEALS</div>
+                        <div class="offer-description">Special family packs starting ₹999</div>
+                        <div class="offer-validity">5 different combos</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products" id="products">
+            <div class="container">
+                <h2>🎇 Our Products 🎇</h2>
+                <div class="product-grid" id="productGrid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🎆 Harshita Pathaka Shop</h3>
+                    <p>Your trusted partner for safe and spectacular Diwali celebrations. Quality crackers, reasonable prices, and unforgettable moments.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📍 Akshita general Store Nangal Mod</p>
+                    <p>📞 +91 8852912850</p>
+                    <p>📞 +91 9667446393</p>
+                    
+                </div>
+            </div>
+            <p>&copy; 2024 Sparkle Diwali. All rights reserved. | Celebrate Responsibly 🙏</p>
+        </div>
+    </footer>
+
+    <script>
+        // Expanded product data with more items
+        const products = [
+            { id: 1, name: "Sparkler Sticks", price: 150, emoji: "✨" },
+            { id: 2, name: "Rocket Fireworks", price: 300, emoji: "🚀" },
+            { id: 3, name: "Flower Pots", price: 250, emoji: "🌸" },
+            { id: 4, name: "Chakra Wheels", price: 200, emoji: "💫" },
+            { id: 5, name: "Bomb Crackers", price: 400, emoji: "💥" },
+            { id: 6, name: "Anar Crackers", price: 350, emoji: "🎆" },
+            { id: 7, name: "Snake Tablets", price: 100, emoji: "🐍" },
+            { id: 8, name: "Butterfly Crackers", price: 180, emoji: "🦋" },
+            { id: 9, name: "Peacock Feathers", price: 320, emoji: "🦚" },
+            { id: 10, name: "Golden Rain", price: 280, emoji: "🌟" },
+            { id: 11, name: "Silver Fountain", price: 220, emoji: "⭐" },
+            { id: 12, name: "Color Smoke", price: 160, emoji: "🌈" },
+            { id: 13, name: "Thunder Bombs", price: 450, emoji: "⚡" },
+            { id: 14, name: "Whistling Rockets", price: 380, emoji: "🎵" },
+            { id: 15, name: "Ground Spinners", price: 190, emoji: "🌀" },
+            { id: 16, name: "Magic Pops", price: 120, emoji: "🎊" },
+            { id: 17, name: "Sky Shots", price: 420, emoji: "🌠" },
+            { id: 18, name: "Dancing Dolls", price: 240, emoji: "💃" },
+            { id: 19, name: "Fire Crackling", price: 340, emoji: "🔥" },
+            { id: 20, name: "Celebration Mix", price: 500, emoji: "🎉" },
+            { id: 21, name: "Mini Rockets", price: 150, emoji: "🎯" },
+            { id: 22, name: "Flower Bouquet", price: 280, emoji: "💐" },
+            { id: 23, name: "Electric Crackers", price: 360, emoji: "⚡" },
+            { id: 24, name: "Rainbow Shells", price: 320, emoji: "🎨" },
+            { id: 25, name: "Fairy Lights", price: 140, emoji: "🧚" },
+            { id: 26, name: "Dragon Eggs", price: 400, emoji: "🐉" },
+            { id: 27, name: "Star Burst", price: 380, emoji: "💫" },
+            { id: 28, name: "Fountain Paradise", price: 290, emoji: "⛲" },
+            { id: 29, name: "Celebration Cake", price: 600, emoji: "🎂" },
+            { id: 30, name: "Victory Shots", price: 480, emoji: "🏆" }
+        ];
+
+        // Load products
+        function loadProducts() {
+            const productGrid = document.getElementById('productGrid');
+            productGrid.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <div class="product-image">${product.emoji}</div>
+                    <div class="product-name">${product.name}</div>
+                    <div class="product-price">₹${product.price}/pack</div>
+                </div>
+            `).join('');
+        }
+
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                // Close mobile menu after clicking
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProducts();
+        });
+
+        // Add scroll effect to header
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const header = document.querySelector('header');
+            
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                header.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body>
+</html>
